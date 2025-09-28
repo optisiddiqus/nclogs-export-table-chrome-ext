@@ -1,0 +1,25 @@
+{
+  "name": "Logs Table Export Ext",
+  "description": "Injects a script into logs.newscred.com pages.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "clipboardRead",
+    "clipboardWrite"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://logs.newscred.com/app/data-explorer/discover*"],
+      "js": ["script.js"],
+      "all_frames": false,
+      "match_origin_as_fallback": false,
+      "match_about_blank": false
+    }
+  ]
+}
